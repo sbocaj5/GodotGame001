@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Themes/UI_themes.tres" type="Theme" id=1]
+[ext_resource path="res://Source/UI-Elements/Change_scene_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Source/UI-Elements/Quit_Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/UI-Elements/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Source/UI-Elements/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Source/UI-Elements/Pause_Menu.gd" type="Script" id=6]
+
+[node name="Pause_Menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -111.0
+margin_top = 26.0
+margin_right = -20.0
+margin_bottom = 49.0
+text = "Score: %s"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause Overlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.196078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="Pause Overlay" instance=ExtResource( 4 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -91.0
+margin_top = -229.0
+margin_right = 91.0
+margin_bottom = -172.0
+text = "Paused"
+
+[node name="Pause_Menu" type="VBoxContainer" parent="Pause Overlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -101.0
+margin_top = -137.0
+margin_right = 101.0
+margin_bottom = 137.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change_scene" parent="Pause Overlay/Pause_Menu" instance=ExtResource( 2 )]
+margin_right = 202.0
+margin_bottom = 88.0
+text = "Main Screen"
+next_scene_path = "res://Source/Screens/MainScreen.tscn"
+
+[node name="RetryButton" parent="Pause Overlay/Pause_Menu" instance=ExtResource( 5 )]
+margin_top = 92.0
+margin_right = 202.0
+margin_bottom = 181.0
+
+[node name="Quit_Button" parent="Pause Overlay/Pause_Menu" instance=ExtResource( 3 )]
+margin_top = 185.0
+margin_right = 202.0
+margin_bottom = 274.0
