@@ -15,7 +15,7 @@
 position = Vector2( 76, 397 )
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_vertical_guides_": [ 2880.0 ]
+"_edit_vertical_guides_": [ 2880.0, -342.0 ]
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -38,7 +38,9 @@ layer = 128
 position = Vector2( 209, 172 )
 
 [node name="Camera2D" parent="Player" index="2"]
+limit_left = 10
 limit_right = 2800
+limit_bottom = 70
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 722, 458 )
